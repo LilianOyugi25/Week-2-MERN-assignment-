@@ -1,0 +1,64 @@
+# Agri-Food Products API - Western Kenya
+
+This API manages agricultural products from Western Kenya region.
+
+## Setup
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Create `.env` file based on `.env.example`
+4. Start server: `npm start`
+
+## API Documentation
+
+### Base URL
+`http://localhost:3000/api/products`
+
+### Endpoints
+
+#### Get all products
+`GET /api/products`
+
+Query parameters:
+- `category`: Filter by category (e.g., 'Dairy', 'Cereals')
+- `inStock`: Filter by availability (true/false)
+- `page`: Page number (default: 1)
+- `limit`: Items per page (default: 10)
+
+#### Search products
+`GET /api/products/search?name=maize`
+
+#### Get product statistics
+`GET /api/products/stats`
+
+#### Get single product
+`GET /api/products/:id`
+
+#### Create product
+`POST /api/products`
+
+Required fields:
+- name (string)
+- description (string)
+- price (number)
+- category (string from enum)
+
+#### Update product
+`PUT /api/products/:id`
+
+#### Delete product
+`DELETE /api/products/:id`
+
+### Authentication
+Include `x-api-key` header with valid API key
+
+## Example Products
+
+```json
+{
+  "name": "Maize",
+  "description": "High quality maize from Kakamega",
+  "price": 2500,
+  "category": "Cereals",
+  "inStock": true
+}
